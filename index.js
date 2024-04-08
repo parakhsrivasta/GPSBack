@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const data = require('./data');
+const routers = require('./routes');
 
 const cors = require('cors');
 
@@ -27,10 +28,4 @@ app.listen(process.env.PORT || 3000, () => {
   console.log('Example app listening on port 3000!');
 });
 
-app.get('/train-status', (req, res) => {  
-  res.send({
-    status: 'success',
-    data: data,
-    message: 'SUCCESS'
-  });
-});
+app.get('/train-status', routers);
